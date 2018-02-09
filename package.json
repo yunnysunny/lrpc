@@ -1,0 +1,17 @@
+{
+  "name": "local-rpc",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test/ --timeout 99999 --exit"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-slogger": "^0.4.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  }
+}
