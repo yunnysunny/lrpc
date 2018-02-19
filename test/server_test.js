@@ -123,7 +123,10 @@ describe('test/server.test.js', () => {
         }));
       })
       .then(() => {
-        done();
+        server.close(function() {
+          done();
+        });
+        
       })
       .catch(() => {
         assert(false);
