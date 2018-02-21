@@ -1,9 +1,9 @@
 const messenger = require('../index');
-
+const {getRandomSocketPath} = require('../lib/common_config');
 const assert = require('assert');
 const Client = messenger.Client;
 const Server = messenger.Server;
-
+const sockPath = getRandomSocketPath();
 describe('test/server.test.js', () => {
   const name = 'midway-messenger';
 
@@ -15,7 +15,7 @@ describe('test/server.test.js', () => {
 
   before(function (done) {
     server = new Server({
-      name,
+      name,sockPath
     });
     server.ready(done);
   });
@@ -30,7 +30,7 @@ describe('test/server.test.js', () => {
 
     function getClient() {
       const client = new Client({
-        name,
+        name,sockPath
       });
       return new Promise((resolve) => {
         client.ready(() => {
@@ -74,9 +74,10 @@ describe('test/server.test.js', () => {
 
   it('should server broadcast message ok before any clients connected', function (done) {
     const name = 'test_messenger';
+    const sockPath = getRandomSocketPath();
     this.timeout(5 * 1000);
     const server = new Server({
-      name,
+      name,sockPath
     });
     const messageCount = 3;
 
@@ -88,7 +89,7 @@ describe('test/server.test.js', () => {
 
     function getClient() {
       const client = new Client({
-        name: name
+        name: name,sockPath
       });
       return new Promise((resolve) => {
         client.ready(() => {
@@ -123,9 +124,9 @@ describe('test/server.test.js', () => {
         }));
       })
       .then(() => {
-        server.close(function() {
+        // server.close(function() {
           done();
-        });
+        // });
         
       })
       .catch(() => {
@@ -137,11 +138,12 @@ describe('test/server.test.js', () => {
   it('should server handle client callback ok', function (done) {
     const action = 'callback_test';
     const action1 = 'callback_test1';
+    // const sockPath = getRandomSocketPath();
     const data = {
       name: 'message_data',
     };
     const client = new Client({
-      name: name
+      name: name,sockPath
     });
 
     server.once(action, (message, reply, cli) => {
@@ -164,7 +166,7 @@ describe('test/server.test.js', () => {
   it('should server handle client disconnect ok', function (done) {
 
     const client = new Client({
-      name: name
+      name: name,sockPath
     });
 
     server.once('disconnected', () => {
@@ -180,7 +182,7 @@ describe('test/server.test.js', () => {
   it('should a client reconnect server when server restarted', function (done) {
 
     const client = new Client({
-      name,
+      name,sockPath
     });
 
     client.on(action, (message) => {
