@@ -1,5 +1,5 @@
 const messenger = require('../index');
-const {getRandomSocketPath} = require('../lib/common_config');
+const {getRandomSocketPath} = messenger.util;
 const assert = require('assert');
 const Client = messenger.Client;
 const Server = messenger.Server;

@@ -1,8 +1,8 @@
 'use strict';
-const Client = require('./lib/client');
-const Server = require('./lib/server');
+const Client = require('./lib/Client');
+const Server = require('./lib/Server');
 const assert = require('assert');
-const {EVENT_NEW_MESSAGE} =require('./lib/common_config');
+const util =require('./lib/common_util');
 
 const Clients = new Map();
 const Servers = new Map();
@@ -24,7 +24,8 @@ function factory(options, type) {
 // export {default as MessengerServer} from './server';
 
 module.exports =  {
-  EVENT_NEW_MESSAGE,
+  util,
+  // EVENT_NEW_MESSAGE,
   Client,
   Server,
   getClient(options) {
