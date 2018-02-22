@@ -1,13 +1,21 @@
 {
-  "name": "local-rpc",
+  "name": "lrpc",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive test/ --timeout 99999 --exit"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yunnysunny/lrpc.git"
+  },
+  "author": "yunnysunny",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yunnysunny/lrpc/issues"
+  },
+  "homepage": "https://github.com/yunnysunny/lrpc#readme",
   "dependencies": {
     "node-slogger": "^0.4.3"
   },
