@@ -124,9 +124,7 @@ describe('test/server.test.js', () => {
         }));
       })
       .then(() => {
-        // server.close(function() {
-          done();
-        // });
+        done();
         
       })
       .catch(() => {
@@ -174,7 +172,10 @@ describe('test/server.test.js', () => {
     });
 
     client.ready(() => {
-      client.close();
+      setTimeout(function() {
+        client.close();
+      },0);
+      
     });
 
   });
