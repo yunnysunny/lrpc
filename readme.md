@@ -39,3 +39,8 @@ new Promise(function(resolve) {
 
 ## 在线文档
 
+参见 [这里](https://doclets.io/yunnysunny/lrpc)
+
+## 协议
+
+[MIT](LICENSE)
