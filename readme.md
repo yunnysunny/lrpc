@@ -75,7 +75,7 @@ client.send(ACTION_CALC,{a:1,b:2},function(err,res) {
 
 ## 在线文档
 
-参见 [这里](https://doclets.io/yunnysunny/lrpc)
+参见 [这里](https://doclets.io/yunnysunny/lrpc/master)
 
 ## 协议
 
