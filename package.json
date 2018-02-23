@@ -1,6 +1,6 @@
 {
   "name": "lrpc",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "本地进程间通信模块",
   "main": "index.js",
   "scripts": {
